@@ -1,0 +1,34 @@
+﻿@model ArtistTitle
+
+<div class="row g-0 border rounded">
+    <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+        <img class="w-100 rounded" src="@Model.Picture" alt="@Model.Title" />
+    </div>
+    <div class="col p-3">
+        <p><a class="h4" href="@Model.Url">@Model.Title</a></p>
+        <div class="d-flex justify-content-between border-top border-bottom p-2">
+            <div>
+                <p>Category: @Model.Category.Name</p>
+                @if (Model.Artist != null)
+                {
+                    <p>Artist: @Model.Artist</p>
+                }
+                @if (Model.Year != null)
+                {
+                    <p>Year: @Model.Year</p>
+                }
+                @if (Model.Media != null)
+                {
+                    <p>Media: @Model.Media</p>
+                }
+            </div>
+            <div>
+                <p>Price: @Model.Price @Model.CurrencyId</p>
+                <p>Delivery: @(Model.Delivery ? "Yes" : "No")</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 p-3">
+        <p class="card-text">@Model.Description</p>
+    </div>
+</div>

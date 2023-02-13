@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    @switch (@Model.Offer?.Type)
+    {
+        case OfferType.ArtistTitle:
+            @await Html.PartialAsync("_ArtistTitle", Model.Offer)
+            break;
+        default:
+            <text>Invalid Offer</text>
+            break;
+    }
+</div>
